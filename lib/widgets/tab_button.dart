@@ -8,11 +8,13 @@ class TabButton extends StatelessWidget {
     required this.onTap,
     required this.activeColor,
     required this.isActive,
+    required this.text,
   });
 
   final void Function() onTap;
   final Color activeColor;
   final bool isActive;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class TabButton extends StatelessWidget {
           ),
           elevation: 0,
         ),
-        child: const Text("Finalizados"),
+        child: Text(text),
       ),
     );
   }

@@ -58,6 +58,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 32),
             const HomeScreenTabSection(),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () => {},
               style: ElevatedButton.styleFrom(

@@ -59,6 +59,7 @@ class _HomeScreenTabSectionState extends State<HomeScreenTabSection>
                   },
                   activeColor: MyColors.secondary,
                   isActive: _currentIndex == 0,
+                  text: "Em andamento",
                 ),
                 const SizedBox(width: 16),
                 TabButton(
@@ -67,6 +68,7 @@ class _HomeScreenTabSectionState extends State<HomeScreenTabSection>
                   },
                   activeColor: MyColors.green[500]!,
                   isActive: _currentIndex == 1,
+                  text: "Finalizados",
                 ),
               ],
             ),
