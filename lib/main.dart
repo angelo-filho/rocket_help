@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rocket_help/screens/home_screen.dart';
 import 'package:rocket_help/screens/login_screen.dart';
 
 void main() {
@@ -53,7 +54,10 @@ class MyApp extends StatelessWidget {
           fillColor: Color(0xff121214),
         ),
       ),
-      home: const LoginScreen(),
+      routes: {
+        "/": (context) => const LoginScreen(),
+        "/home": (context) => const HomeScreen(),
+      },
     );
   }
 }

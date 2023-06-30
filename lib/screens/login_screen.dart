@@ -5,6 +5,10 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
+  void handlePressButton(BuildContext context) {
+    Navigator.pushReplacementNamed(context, "/home");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () => {},
+                  onPressed: () => handlePressButton(context),
                   style: ElevatedButton.styleFrom(
                       minimumSize: const Size.fromHeight(56)),
                   child: Text(
