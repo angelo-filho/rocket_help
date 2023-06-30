@@ -99,6 +99,21 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+            ElevatedButton(
+              onPressed: () => {},
+              style: ElevatedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(56)),
+              child: const Text(
+                "Nova solicitação",
+                style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                    color: Colors.white),
+              ),
+            ),
+            const SizedBox(
+              height: 35,
+            ),
           ],
         ),
       ),
