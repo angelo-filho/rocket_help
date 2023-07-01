@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:rocket_help/widgets/primary_button.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
-  void handlePressButton(BuildContext context) {
+  void _handlePressButton(BuildContext context) {
     Navigator.pushReplacementNamed(context, "/home");
   }
 
@@ -67,20 +68,8 @@ class LoginScreen extends StatelessWidget {
                     keyboardAppearance: Brightness.dark,
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () => handlePressButton(context),
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(56)),
-                  child: Text(
-                    "Entrar",
-                    style: GoogleFonts.roboto(
-                      textStyle: const TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 14,
-                          color: Colors.white),
-                    ),
-                  ),
-                )
+                PrimaryButton(
+                    onTap: () => _handlePressButton(context), text: "Entrar")
               ],
             ),
           ),

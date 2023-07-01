@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:rocket_help/utils/my_colors.dart';
+import 'package:rocket_help/widgets/primary_button.dart';
 
 import '../widgets/tab_section.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
+  void _handleGoToNewTransaction(BuildContext context) {
+    Navigator.pushNamed(context, "/new_solicitation");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,18 +64,9 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 32),
             const HomeScreenTabSection(),
             const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () => {},
-              style: ElevatedButton.styleFrom(
-                  minimumSize: const Size.fromHeight(56)),
-              child: const Text(
-                "Nova solicitação",
-                style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 14,
-                    color: Colors.white),
-              ),
-            ),
+            PrimaryButton(
+                onTap: () => _handleGoToNewTransaction(context),
+                text: "Nova solicitação"),
             const SizedBox(
               height: 35,
             ),
