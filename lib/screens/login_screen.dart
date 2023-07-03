@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:rocket_help/widgets/dark_text_field.dart';
 import 'package:rocket_help/widgets/primary_button.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -42,30 +43,15 @@ class LoginScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 16),
-                  child: TextField(
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
+                  child: DarkTextField(
                       hintText: "Email",
-                      prefixIcon: PhosphorIcon(
-                        PhosphorIcons.regular.envelope,
-                      ),
-                    ),
-                    keyboardAppearance: Brightness.dark,
-                  ),
+                      prefixIcon: Icon(PhosphorIcons.regular.envelope)),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 32),
-                  child: TextField(
-                    obscureText: true,
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                      hintText: "Senha",
-                      prefixIcon: PhosphorIcon(
-                        PhosphorIcons.regular.key,
-                        semanticLabel: "Chave",
-                      ),
-                    ),
-                    keyboardAppearance: Brightness.dark,
+                  child: DarkTextField(
+                    hintText: "Senha",
+                    prefixIcon: Icon(PhosphorIcons.regular.key),
                   ),
                 ),
                 PrimaryButton(
