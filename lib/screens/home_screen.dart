@@ -18,6 +18,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: MyColors.gray[700],
       appBar: AppBar(
         backgroundColor: MyColors.gray[600],
+        elevation: 0,
         title: Image.asset(
           "assets/Logo_Help_Row.png",
           width: 128,
