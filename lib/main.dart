@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:rocket_help/screens/home_screen.dart';
 import 'package:rocket_help/screens/login_screen.dart';
 import 'package:rocket_help/screens/new_solicitation_screen.dart';
+import 'package:rocket_help/screens/solicitation_details_screen/solicitation_details_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,11 +55,13 @@ class MyApp extends StatelessWidget {
           filled: true,
           fillColor: Color(0xff121214),
         ),
+        useMaterial3: true,
       ),
       routes: {
         "/": (context) => const LoginScreen(),
         "/home": (context) => const HomeScreen(),
         "/new_solicitation": (context) => const NewSolicitationScreen(),
+        "/solicitation_details": (context) => const SolicitationDetailsScreen(),
       },
     );
   }
