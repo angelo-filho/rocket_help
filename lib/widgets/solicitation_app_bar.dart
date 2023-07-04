@@ -23,6 +23,7 @@ class _SolicitationAppBarState extends State<SolicitationAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: MyColors.gray[600],
+      scrolledUnderElevation: 0,
       elevation: 0,
       leading: IconButton(
         icon: Icon(
