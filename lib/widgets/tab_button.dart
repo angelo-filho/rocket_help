@@ -28,8 +28,18 @@ class TabButton extends StatelessWidget {
             color: isActive ? activeColor : Colors.transparent,
           ),
           elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+          minimumSize: const Size.fromHeight(0),
         ),
-        child: Text(text),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Text(
+            text,
+            style: const TextStyle(height: 1.6),
+          ),
+        ),
       ),
     );
   }
