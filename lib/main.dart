@@ -58,10 +58,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        "/login": (context) => const LoginScreen(),
+        "/": (context) => const LoginScreen(),
         "/home": (context) => const HomeScreen(),
         "/new_solicitation": (context) => const NewSolicitationScreen(),
-        "/": (context) => const SolicitationDetailsScreen(),
+        "/solicitation_details": (context) => const SolicitationDetailsScreen(),
       },
     );
   }
