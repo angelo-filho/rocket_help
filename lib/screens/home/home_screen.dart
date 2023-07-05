@@ -3,7 +3,7 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:rocket_help/utils/my_colors.dart';
 import 'package:rocket_help/widgets/primary_button.dart';
 
-import '../widgets/tab_section.dart';
+import '../../widgets/tab_section.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
