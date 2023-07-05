@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rocket_help/screens/solicitation_details_screen/widgets/info_card_header.dart';
+import 'package:rocket_help/screens/solicitation_details/widgets/info_card_header.dart';
 import 'package:rocket_help/utils/my_colors.dart';
 
 class InfoCard extends StatelessWidget {
