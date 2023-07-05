@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:rocket_help/utils/my_colors.dart';
 import 'package:rocket_help/widgets/dark_text_field.dart';
 import 'package:rocket_help/widgets/primary_button.dart';
 
@@ -14,7 +15,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff202024),
+      backgroundColor: MyColors.gray[600],
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
