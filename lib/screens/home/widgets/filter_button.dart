@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/my_colors.dart';
 
-class TabButton extends StatelessWidget {
-  const TabButton({
+class FilterButton extends StatelessWidget {
+  const FilterButton({
     super.key,
     required this.onTap,
     required this.activeColor,
