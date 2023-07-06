@@ -3,11 +3,18 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../utils/my_colors.dart';
 
-class FinishedItemCard extends StatelessWidget {
-  const FinishedItemCard({super.key});
+class SolicitationCard extends StatelessWidget {
+  const SolicitationCard({super.key, required this.isFinished});
+
+  final bool isFinished;
 
   @override
   Widget build(BuildContext context) {
+    final mainColor = isFinished ? MyColors.green[500]! : MyColors.secondary;
+    final icon = isFinished
+        ? PhosphorIcons.regular.sealCheck
+        : PhosphorIcons.regular.clockAfternoon;
+
     return Container(
       width: double.infinity,
       height: 88,
@@ -16,10 +23,10 @@ class FinishedItemCard extends StatelessWidget {
         color: MyColors.gray[600],
         borderRadius: BorderRadius.circular(5),
         border: Border(
-          left: BorderSide(color: MyColors.green[500]!, width: 8),
-          right: BorderSide(color: MyColors.green[500]!, width: 0),
-          top: BorderSide(color: MyColors.green[500]!, width: 0),
-          bottom: BorderSide(color: MyColors.green[500]!, width: 0),
+          left: BorderSide(color: mainColor, width: 8),
+          right: BorderSide(color: mainColor, width: 0),
+          top: BorderSide(color: mainColor, width: 0),
+          bottom: BorderSide(color: mainColor, width: 0),
         ),
       ),
       child: Row(
@@ -67,8 +74,8 @@ class FinishedItemCard extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: Icon(
-              PhosphorIcons.regular.sealCheck,
-              color: MyColors.green[500],
+              icon,
+              color: mainColor,
             ),
           )
         ],
