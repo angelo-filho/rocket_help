@@ -19,3 +19,23 @@ class Solicitation {
   final bool isFinished;
   final String? solution;
 }
+
+final solicitationsMock = [
+  Solicitation(
+    equipment: 'Patrimônio 12345',
+    description: "Algo muito sério",
+    dateOfRegister: DateTime.now(),
+  ),
+  Solicitation.withStatusFinished(
+    equipment: 'Patrimônio 12345',
+    description: "Algo muito sério",
+    dateOfRegister: DateTime.now(),
+    solution: "É isso ai mermo.",
+  ),
+  Solicitation.withStatusFinished(
+    equipment: 'Patrimônio 12345',
+    description: "Algo muito sério",
+    dateOfRegister: DateTime.now(),
+    solution: "É isso ai mermo.",
+  ),
+];

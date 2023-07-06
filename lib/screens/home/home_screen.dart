@@ -7,6 +7,12 @@ import 'package:rocket_help/screens/home/widgets/filter_button.dart';
 import '../../models/solicitation.dart';
 import 'widgets/solicitation_list.dart';
 
+enum SolicitationFilter {
+  None,
+  NotFinished,
+  Finished,
+}
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -15,32 +21,45 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Solicitation> solicitations = [
-    Solicitation(
-      equipment: 'Patrimônio 12345',
-      description: "Algo muito sério",
-      dateOfRegister: DateTime.now(),
-    ),
-    Solicitation.withStatusFinished(
-      equipment: 'Patrimônio 12345',
-      description: "Algo muito sério",
-      dateOfRegister: DateTime.now(),
-      solution: "É isso ai mermo.",
-    ),
-    Solicitation.withStatusFinished(
-      equipment: 'Patrimônio 12345',
-      description: "Algo muito sério",
-      dateOfRegister: DateTime.now(),
-      solution: "É isso ai mermo.",
-    ),
-  ];
+  final List<Solicitation> solicitations = solicitationsMock;
+  SolicitationFilter filter = SolicitationFilter.None;
+
+  List<Solicitation> get filteredSolicitations {
+    if (filter == SolicitationFilter.NotFinished) {
+      return solicitations
+          .where((solicitation) => !solicitation.isFinished)
+          .toList();
+    }
+
+    return solicitations
+        .where((solicitation) => solicitation.isFinished)
+        .toList();
+  }
 
   void _handleGoToNewTransaction(BuildContext context) {
     Navigator.pushNamed(context, "/new_solicitation");
   }
 
+  void toggleFilterType(SolicitationFilter newFilterType) {
+    if (filter == newFilterType) {
+      setState(() {
+        filter = SolicitationFilter.None;
+      });
+
+      return;
+    }
+
+    setState(() {
+      filter = newFilterType;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final solicitationsToUse = filter == SolicitationFilter.None
+        ? solicitations
+        : filteredSolicitations;
+
     return Scaffold(
       backgroundColor: MyColors.gray[700],
       appBar: AppBar(
@@ -68,10 +87,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             const SizedBox(height: 32),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Solicitações",
                   style: TextStyle(
                     color: Colors.white,
@@ -80,8 +99,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Text(
-                  "2",
-                  style: TextStyle(
+                  "${solicitationsToUse.length}",
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
@@ -93,16 +112,16 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               children: [
                 FilterButton(
-                  onTap: () {},
+                  onTap: () => toggleFilterType(SolicitationFilter.NotFinished),
                   activeColor: MyColors.secondary,
-                  isActive: true,
+                  isActive: filter == SolicitationFilter.NotFinished,
                   text: "Em andamento",
                 ),
                 const SizedBox(width: 16),
                 FilterButton(
-                  onTap: () {},
+                  onTap: () => toggleFilterType(SolicitationFilter.Finished),
                   activeColor: MyColors.green[500]!,
-                  isActive: false,
+                  isActive: filter == SolicitationFilter.Finished,
                   text: "Finalizados",
                 ),
               ],
@@ -110,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 32,
             ),
-            SolicitationsList(solicitations: solicitations),
+            SolicitationsList(solicitations: solicitationsToUse),
             const SizedBox(height: 16),
             PrimaryButton(
                 onTap: () => _handleGoToNewTransaction(context),
