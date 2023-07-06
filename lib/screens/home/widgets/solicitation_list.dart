@@ -19,8 +19,8 @@ class SolicitationsList extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.only(top: index == 0 ? 0 : 16),
-            child:
-                SolicitationCard(isFinished: solicitations[index].isFinished),
+            child: SolicitationCard(
+                isFinished: solicitations[index].isFinished, index: index),
           );
         },
       );
