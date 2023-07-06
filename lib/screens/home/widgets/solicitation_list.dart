@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rocket_help/models/solicitation.dart';
-import 'package:rocket_help/widgets/empty_calls.dart';
+import 'package:rocket_help/screens/home/widgets/empty_calls.dart';
 
 import 'solicitation_card.dart';
 
