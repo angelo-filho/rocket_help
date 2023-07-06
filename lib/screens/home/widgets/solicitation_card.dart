@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
-import '../utils/my_colors.dart';
+import '../../../utils/my_colors.dart';
 
 class SolicitationCard extends StatelessWidget {
   const SolicitationCard({super.key, required this.isFinished});
