@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:rocket_help/screens/home_screen.dart';
+import 'package:rocket_help/screens/home/home_screen.dart';
 import 'package:rocket_help/screens/login_screen.dart';
 import 'package:rocket_help/screens/new_solicitation_screen.dart';
-import 'package:rocket_help/screens/solicitation_details_screen/solicitation_details_screen.dart';
+import 'package:rocket_help/screens/solicitation_details/solicitation_details_screen.dart';
 
 void main() {
   runApp(const MyApp());
