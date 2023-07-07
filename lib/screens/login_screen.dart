@@ -58,7 +58,8 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   PrimaryButton(
-                      onTap: () => _handlePressButton(context), text: "Entrar")
+                      onTap: () => _handlePressButton(context), text: "Entrar"),
+                  const SizedBox(height: 16),
                 ],
               ),
             ),
