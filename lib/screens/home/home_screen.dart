@@ -8,9 +8,9 @@ import '../../models/solicitation.dart';
 import 'widgets/solicitation_list.dart';
 
 enum SolicitationFilter {
-  None,
-  NotFinished,
-  Finished,
+  none,
+  notFinished,
+  finished,
 }
 
 class HomeScreen extends StatefulWidget {
@@ -22,10 +22,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<Solicitation> solicitations = solicitationsMock;
-  SolicitationFilter filter = SolicitationFilter.None;
+  SolicitationFilter filter = SolicitationFilter.none;
 
   List<Solicitation> get filteredSolicitations {
-    if (filter == SolicitationFilter.NotFinished) {
+    if (filter == SolicitationFilter.notFinished) {
       return solicitations
           .where((solicitation) => !solicitation.isFinished)
           .toList();
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void toggleFilterType(SolicitationFilter newFilterType) {
     if (filter == newFilterType) {
       setState(() {
-        filter = SolicitationFilter.None;
+        filter = SolicitationFilter.none;
       });
 
       return;
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final solicitationsToUse = filter == SolicitationFilter.None
+    final solicitationsToUse = filter == SolicitationFilter.none
         ? solicitations
         : filteredSolicitations;
 
@@ -112,16 +112,16 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               children: [
                 FilterButton(
-                  onTap: () => toggleFilterType(SolicitationFilter.NotFinished),
+                  onTap: () => toggleFilterType(SolicitationFilter.notFinished),
                   activeColor: MyColors.secondary,
-                  isActive: filter == SolicitationFilter.NotFinished,
+                  isActive: filter == SolicitationFilter.notFinished,
                   text: "Em andamento",
                 ),
                 const SizedBox(width: 16),
                 FilterButton(
-                  onTap: () => toggleFilterType(SolicitationFilter.Finished),
+                  onTap: () => toggleFilterType(SolicitationFilter.finished),
                   activeColor: MyColors.green[500]!,
-                  isActive: filter == SolicitationFilter.Finished,
+                  isActive: filter == SolicitationFilter.finished,
                   text: "Finalizados",
                 ),
               ],
