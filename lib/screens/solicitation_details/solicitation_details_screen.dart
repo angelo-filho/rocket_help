@@ -34,7 +34,7 @@ class _SolicitationDetailsScreenState extends State<SolicitationDetailsScreen> {
   Widget build(BuildContext context) {
     final solicitation = solicitations.values[widget.solicitationIndex];
 
-    final isFinished = solicitation.isFinished;
+    final isFinished = solicitation.dateWhenFinished != null;
 
     final mainColor = isFinished ? MyColors.green[500] : MyColors.secondary;
 

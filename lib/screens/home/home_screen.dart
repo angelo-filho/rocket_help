@@ -43,12 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Solicitation> get filteredSolicitations {
     if (filter == SolicitationFilter.notFinished) {
       return solicitations.values
-          .where((solicitation) => !solicitation.isFinished)
+          .where((solicitation) => solicitation.dateWhenFinished == null)
           .toList();
     }
 
     return solicitations.values
-        .where((solicitation) => solicitation.isFinished)
+        .where((solicitation) => solicitation.dateWhenFinished != null)
         .toList();
   }
 

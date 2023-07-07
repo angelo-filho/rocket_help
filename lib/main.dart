@@ -28,6 +28,7 @@ void main() async {
         equipment: "54321",
         description: "Deu ruim aqui menor",
         dateOfRegister: DateTime.utc(2023, 4, 17, 8),
+        dateWhenFinished: DateTime.utc(2023, 5, 1, 11),
         solution: "É complicado isso ai..."),
   );
 

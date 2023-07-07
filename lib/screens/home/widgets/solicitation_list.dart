@@ -20,7 +20,8 @@ class SolicitationsList extends StatelessWidget {
           return Padding(
             padding: EdgeInsets.only(top: index == 0 ? 0 : 16),
             child: SolicitationCard(
-                isFinished: solicitations[index].isFinished, index: index),
+                isFinished: solicitations[index].dateWhenFinished != null,
+                index: index),
           );
         },
       );
