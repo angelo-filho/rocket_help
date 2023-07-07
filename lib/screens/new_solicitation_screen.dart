@@ -47,8 +47,10 @@ class _NewSolicitationScreenState extends State<NewSolicitationScreen> {
           child: Column(
             children: [
               DarkTextField(
-                  controller: _numberController,
-                  hintText: "Número do Patrimônio"),
+                controller: _numberController,
+                keyboardType: TextInputType.number,
+                hintText: "Número do Patrimônio",
+              ),
               const SizedBox(height: 16),
               DarkTextField(
                 controller: _descriptionController,
