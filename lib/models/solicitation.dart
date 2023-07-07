@@ -1,4 +1,8 @@
+import 'package:uuid/uuid.dart';
+
 import '../utils/date_formatter.dart';
+
+const uuid = Uuid();
 
 class Solicitation {
   Solicitation({
@@ -16,6 +20,7 @@ class Solicitation {
     required this.solution,
   });
 
+  final String id = uuid.v4();
   final String equipment;
   final String description;
   final DateTime dateOfRegister;
