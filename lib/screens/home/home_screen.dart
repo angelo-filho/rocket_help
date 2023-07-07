@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:rocket_help/models/solicitation_list_model.dart';
 import 'package:rocket_help/utils/my_colors.dart';
 import 'package:rocket_help/widgets/primary_button.dart';
 import 'package:rocket_help/screens/home/widgets/filter_button.dart';
@@ -21,17 +22,32 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Solicitation> solicitations = solicitationsMock;
   SolicitationFilter filter = SolicitationFilter.none;
+
+  @override
+  void initState() {
+    super.initState();
+    solicitations.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    solicitations.removeListener(() {
+      setState(() {});
+    });
+  }
 
   List<Solicitation> get filteredSolicitations {
     if (filter == SolicitationFilter.notFinished) {
-      return solicitations
+      return solicitations.values
           .where((solicitation) => !solicitation.isFinished)
           .toList();
     }
 
-    return solicitations
+    return solicitations.values
         .where((solicitation) => solicitation.isFinished)
         .toList();
   }
@@ -57,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final solicitationsToUse = filter == SolicitationFilter.none
-        ? solicitations
+        ? solicitations.values
         : filteredSolicitations;
 
     return Scaffold(
