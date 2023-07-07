@@ -4,9 +4,9 @@ import 'package:rocket_help/screens/solicitation_details/widgets/info_card_heade
 import 'package:rocket_help/utils/my_colors.dart';
 
 class InfoInput extends StatelessWidget {
-  const InfoInput({
-    super.key,
-  });
+  const InfoInput({super.key, this.controller});
+
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +25,7 @@ class InfoInput extends StatelessWidget {
             ),
           ),
           TextField(
+            controller: controller,
             maxLines: 10,
             style: const TextStyle(
               color: Colors.white,
