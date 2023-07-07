@@ -5,21 +5,29 @@ class Solicitation {
     required this.equipment,
     required this.description,
     required this.dateOfRegister,
-  })  : isFinished = false,
+  })  : dateWhenFinished = null,
         solution = null;
 
   Solicitation.withStatusFinished({
     required this.equipment,
     required this.description,
     required this.dateOfRegister,
+    required this.dateWhenFinished,
     required this.solution,
-  }) : isFinished = true;
+  });
 
   final String equipment;
   final String description;
   final DateTime dateOfRegister;
-  bool isFinished;
+  DateTime? dateWhenFinished;
   String? solution;
 
   String get formattedDateOfRegister => dateFormatter.format(dateOfRegister);
+  String get formattedDateWhenFinished {
+    if (dateWhenFinished == null) {
+      return "";
+    }
+
+    return dateFormatter.format(dateWhenFinished!);
+  }
 }
