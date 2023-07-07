@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rocket_help/screens/solicitation_details/widgets/info_card_header.dart';
+import 'package:rocket_help/utils/date_formatter.dart';
 import 'package:rocket_help/utils/my_colors.dart';
 
 class InfoCard extends StatelessWidget {
@@ -44,7 +45,7 @@ class InfoCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Registrado em 20/11/2022 às 14:30",
+                    "Registrado ${dateFormatter.format(date!)}",
                     style: TextStyle(
                       color: MyColors.gray[300],
                     ),
