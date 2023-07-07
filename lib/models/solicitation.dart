@@ -1,3 +1,7 @@
+import 'package:intl/intl.dart';
+
+final formatter = DateFormat("dd/MM/yy à's' HH'h'");
+
 class Solicitation {
   Solicitation({
     required this.equipment,
@@ -18,24 +22,6 @@ class Solicitation {
   final DateTime dateOfRegister;
   final bool isFinished;
   final String? solution;
-}
 
-final solicitationsMock = [
-  Solicitation(
-    equipment: 'Patrimônio 12345',
-    description: "Algo muito sério",
-    dateOfRegister: DateTime.now(),
-  ),
-  Solicitation.withStatusFinished(
-    equipment: 'Patrimônio 12345',
-    description: "Algo muito sério",
-    dateOfRegister: DateTime.now(),
-    solution: "É isso ai mermo.",
-  ),
-  Solicitation.withStatusFinished(
-    equipment: 'Patrimônio 12345',
-    description: "Algo muito sério",
-    dateOfRegister: DateTime.now(),
-    solution: "É isso ai mermo.",
-  ),
-];
+  String get formattedDateOfRegister => formatter.format(dateOfRegister);
+}
