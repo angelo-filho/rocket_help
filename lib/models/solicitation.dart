@@ -1,6 +1,4 @@
-import 'package:intl/intl.dart';
-
-final formatter = DateFormat("dd/MM/yy à's' HH'h'");
+import '../utils/date_formatter.dart';
 
 class Solicitation {
   Solicitation({
@@ -23,5 +21,5 @@ class Solicitation {
   final bool isFinished;
   final String? solution;
 
-  String get formattedDateOfRegister => formatter.format(dateOfRegister);
+  String get formattedDateOfRegister => dateFormatter.format(dateOfRegister);
 }
