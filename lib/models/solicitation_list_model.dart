@@ -13,6 +13,7 @@ class SolicitationListModel with ChangeNotifier {
   void updateSolicitation(int index, String solution) {
     _values[index].isFinished = true;
     _values[index].solution = solution;
+    notifyListeners();
   }
 }
 
