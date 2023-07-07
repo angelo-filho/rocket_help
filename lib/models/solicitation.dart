@@ -18,8 +18,8 @@ class Solicitation {
   final String equipment;
   final String description;
   final DateTime dateOfRegister;
-  final bool isFinished;
-  final String? solution;
+  bool isFinished;
+  String? solution;
 
   String get formattedDateOfRegister => dateFormatter.format(dateOfRegister);
 }
