@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
-import 'package:rocket_help/models/solicitation.dart';
+import 'package:rocket_help/models/solicitation_list_model.dart';
 import 'package:rocket_help/screens/solicitation_details/widgets/info_input.dart';
 import 'package:rocket_help/utils/my_colors.dart';
 import 'package:rocket_help/widgets/primary_button.dart';
@@ -8,14 +8,31 @@ import 'package:rocket_help/widgets/solicitation_app_bar.dart';
 
 import 'widgets/info_card.dart';
 
-class SolicitationDetailsScreen extends StatelessWidget {
+class SolicitationDetailsScreen extends StatefulWidget {
   const SolicitationDetailsScreen({super.key, required this.solicitationIndex});
 
   final int solicitationIndex;
 
   @override
+  State<SolicitationDetailsScreen> createState() =>
+      _SolicitationDetailsScreenState();
+}
+
+class _SolicitationDetailsScreenState extends State<SolicitationDetailsScreen> {
+  final TextEditingController _solutionController = TextEditingController();
+
+  void _updateSolicitation() {
+    solicitations.updateSolicitation(
+      widget.solicitationIndex,
+      _solutionController.text,
+    );
+
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final solicitation = solicitationsMock[solicitationIndex];
+    final solicitation = solicitations.values[widget.solicitationIndex];
 
     final isFinished = solicitation.isFinished;
 
@@ -78,11 +95,11 @@ class SolicitationDetailsScreen extends StatelessWidget {
                               content: solicitation.solution!,
                               date: DateTime.now(),
                             )
-                          : const InfoInput(),
+                          : InfoInput(controller: _solutionController),
                       const SizedBox(height: 41),
                       if (!isFinished) ...[
                         PrimaryButton(
-                          onTap: () {},
+                          onTap: _updateSolicitation,
                           text: "Finalizar",
                         ),
                         const SizedBox(height: 35),
