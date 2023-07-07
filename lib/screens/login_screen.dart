@@ -14,50 +14,53 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: MyColors.gray[600],
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(0, 80, 0, 80),
-                  child: Image(
-                    image: AssetImage("assets/Logo_Help.png"),
-                    alignment: Alignment.center,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        backgroundColor: MyColors.gray[600],
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(0, 80, 0, 80),
+                    child: Image(
+                      image: AssetImage("assets/Logo_Help.png"),
+                      alignment: Alignment.center,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 24),
-                  child: Text(
-                    "Acesse sua conta",
-                    style: GoogleFonts.roboto(
-                      textStyle: const TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 20,
-                        color: Colors.white,
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 24),
+                    child: Text(
+                      "Acesse sua conta",
+                      style: GoogleFonts.roboto(
+                        textStyle: const TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: DarkTextField(
-                      hintText: "Email",
-                      prefixIcon: Icon(PhosphorIcons.regular.envelope)),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 32),
-                  child: DarkTextField(
-                    hintText: "Senha",
-                    prefixIcon: Icon(PhosphorIcons.regular.key),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: DarkTextField(
+                        hintText: "Email",
+                        prefixIcon: Icon(PhosphorIcons.regular.envelope)),
                   ),
-                ),
-                PrimaryButton(
-                    onTap: () => _handlePressButton(context), text: "Entrar")
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 32),
+                    child: DarkTextField(
+                      hintText: "Senha",
+                      prefixIcon: Icon(PhosphorIcons.regular.key),
+                    ),
+                  ),
+                  PrimaryButton(
+                      onTap: () => _handlePressButton(context), text: "Entrar")
+                ],
+              ),
             ),
           ),
         ),
