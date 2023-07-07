@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:rocket_help/models/solicitation_list_model.dart';
 import 'package:rocket_help/screens/solicitation_details/solicitation_details_screen.dart';
 
 import '../../../utils/my_colors.dart';
@@ -25,6 +26,8 @@ class SolicitationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final solicitation = solicitations.values[index];
+
     final mainColor = isFinished ? MyColors.green[500]! : MyColors.secondary;
     final icon = isFinished
         ? PhosphorIcons.regular.sealCheck
@@ -53,9 +56,9 @@ class SolicitationCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "Patrimônio 147456",
-                  style: TextStyle(
+                Text(
+                  "Patrimônio ${solicitation.equipment}",
+                  style: const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 16,
                     color: Colors.white,
@@ -73,7 +76,7 @@ class SolicitationCard extends StatelessWidget {
                       width: 4,
                     ),
                     Text(
-                      "20/01/22 às 14h",
+                      solicitation.formattedDateOfRegister,
                       style: TextStyle(
                         fontSize: 12,
                         color: MyColors.gray[300],
