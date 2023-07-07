@@ -8,30 +8,33 @@ import '../../../utils/my_colors.dart';
 class SolicitationCard extends StatelessWidget {
   const SolicitationCard({
     super.key,
-    required this.isFinished,
-    required this.index,
+    required this.id,
   });
 
-  final bool isFinished;
-  final int index;
+  final String id;
 
   void goToSolicitationDetails(BuildContext context) {
     Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) =>
-              SolicitationDetailsScreen(solicitationIndex: index),
+          builder: (context) => SolicitationDetailsScreen(solicitationId: id),
         ));
   }
 
   @override
   Widget build(BuildContext context) {
-    final solicitation = solicitations.values[index];
+    final solicitation = solicitations.getSolicitationById(id);
+
+    final isFinished = solicitation.dateWhenFinished != null;
 
     final mainColor = isFinished ? MyColors.green[500]! : MyColors.secondary;
     final icon = isFinished
         ? PhosphorIcons.regular.sealCheck
         : PhosphorIcons.regular.clockAfternoon;
+
+    final dateToDisplay = isFinished
+        ? solicitation.formattedDateWhenFinished
+        : solicitation.formattedDateOfRegister;
 
     return GestureDetector(
       onTap: () => goToSolicitationDetails(context),
@@ -76,7 +79,7 @@ class SolicitationCard extends StatelessWidget {
                       width: 4,
                     ),
                     Text(
-                      solicitation.formattedDateOfRegister,
+                      dateToDisplay,
                       style: TextStyle(
                         fontSize: 12,
                         color: MyColors.gray[300],

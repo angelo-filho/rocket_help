@@ -9,9 +9,9 @@ import 'package:rocket_help/widgets/solicitation_app_bar.dart';
 import 'widgets/info_card.dart';
 
 class SolicitationDetailsScreen extends StatefulWidget {
-  const SolicitationDetailsScreen({super.key, required this.solicitationIndex});
+  const SolicitationDetailsScreen({super.key, required this.solicitationId});
 
-  final int solicitationIndex;
+  final String solicitationId;
 
   @override
   State<SolicitationDetailsScreen> createState() =>
@@ -23,7 +23,7 @@ class _SolicitationDetailsScreenState extends State<SolicitationDetailsScreen> {
 
   void _updateSolicitation() {
     solicitations.updateSolicitation(
-      widget.solicitationIndex,
+      widget.solicitationId,
       _solutionController.text,
     );
 
@@ -32,7 +32,8 @@ class _SolicitationDetailsScreenState extends State<SolicitationDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final solicitation = solicitations.values[widget.solicitationIndex];
+    final solicitation =
+        solicitations.getSolicitationById(widget.solicitationId);
 
     final isFinished = solicitation.dateWhenFinished != null;
 
@@ -85,7 +86,7 @@ class _SolicitationDetailsScreenState extends State<SolicitationDetailsScreen> {
                         icon: PhosphorIcons.regular.clipboardText,
                         title: "Descrição do problema",
                         content: solicitation.description,
-                        date: DateTime.now(),
+                        date: solicitation.dateOfRegister,
                       ),
                       const SizedBox(height: 20),
                       isFinished
@@ -93,7 +94,7 @@ class _SolicitationDetailsScreenState extends State<SolicitationDetailsScreen> {
                               icon: PhosphorIcons.regular.sealCheck,
                               title: "Solução",
                               content: solicitation.solution!,
-                              date: DateTime.now(),
+                              date: solicitation.dateWhenFinished,
                             )
                           : InfoInput(controller: _solutionController),
                       const SizedBox(height: 41),
