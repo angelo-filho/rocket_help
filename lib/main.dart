@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:rocket_help/models/solicitation.dart';
@@ -6,9 +7,14 @@ import 'package:rocket_help/models/solicitation_list_model.dart';
 
 import 'app.dart';
 
-void main() {
+void main() async {
   Intl.defaultLocale = "pt_BR";
   initializeDateFormatting("pt_BR");
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
 
   solicitations.add(
     Solicitation(
