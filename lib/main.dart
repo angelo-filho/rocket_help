@@ -19,23 +19,23 @@ void main() async {
   solicitations.add(
     Solicitation(
         equipment: "12345",
-        description: "Descrição top das galáxias",
+        description: "A internet não está conectando",
         dateOfRegister: DateTime.utc(2023, 3, 6, 13)),
   );
 
   solicitations.add(
     Solicitation.withStatusFinished(
         equipment: "54321",
-        description: "Deu ruim aqui menor",
+        description: "A impressora não está pegando!",
         dateOfRegister: DateTime.utc(2023, 4, 17, 8),
         dateWhenFinished: DateTime.utc(2023, 5, 1, 11),
-        solution: "É complicado isso ai..."),
+        solution: "Reinicie o computador."),
   );
 
   solicitations.add(
     Solicitation(
         equipment: "678910",
-        description: "A impressora não tá pegando!",
+        description: "A internet não está conectando",
         dateOfRegister: DateTime.utc(2023, 6, 1, 17)),
   );
 
