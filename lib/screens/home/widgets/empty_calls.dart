@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:rocket_help/utils/my_colors.dart';
 
 class EmptyCalls extends StatelessWidget {
-  const EmptyCalls({super.key});
+  const EmptyCalls({super.key, required this.message});
+
+  final String message;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,8 @@ class EmptyCalls extends StatelessWidget {
           height: 24,
         ),
         Text(
-          "Você ainda não tem \n chamados criados",
+          message,
+          textAlign: TextAlign.center,
           style: TextStyle(
             color: MyColors.gray[300],
             fontSize: 20,
