@@ -55,6 +55,7 @@ class LoginScreen extends StatelessWidget {
                     child: DarkTextField(
                       hintText: "Senha",
                       prefixIcon: Icon(PhosphorIcons.regular.key),
+                      obscureText: true,
                     ),
                   ),
                   PrimaryButton(
