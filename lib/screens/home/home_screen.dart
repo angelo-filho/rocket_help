@@ -145,7 +145,10 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 32,
             ),
-            SolicitationsList(solicitations: solicitationsToUse),
+            SolicitationsList(
+              solicitations: solicitationsToUse,
+              filterType: filter,
+            ),
             const SizedBox(height: 16),
             PrimaryButton(
                 onTap: () => _handleGoToNewTransaction(context),
