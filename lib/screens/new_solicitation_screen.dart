@@ -38,29 +38,32 @@ class _NewSolicitationScreenState extends State<NewSolicitationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: MyColors.gray[600],
-      appBar: const SolicitationAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(32, 16, 32, 0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              DarkTextField(
-                controller: _numberController,
-                keyboardType: TextInputType.number,
-                hintText: "Número do Patrimônio",
-              ),
-              const SizedBox(height: 16),
-              DarkTextField(
-                controller: _descriptionController,
-                hintText: "Descrição do problema",
-                maxLines: 18,
-              ),
-              const SizedBox(height: 16),
-              PrimaryButton(onTap: addSolicitation, text: "Cadastrar"),
-              const SizedBox(height: 35),
-            ],
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        backgroundColor: MyColors.gray[600],
+        appBar: const SolicitationAppBar(),
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(32, 16, 32, 0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                DarkTextField(
+                  controller: _numberController,
+                  keyboardType: TextInputType.number,
+                  hintText: "Número do Patrimônio",
+                ),
+                const SizedBox(height: 16),
+                DarkTextField(
+                  controller: _descriptionController,
+                  hintText: "Descrição do problema",
+                  maxLines: 18,
+                ),
+                const SizedBox(height: 16),
+                PrimaryButton(onTap: addSolicitation, text: "Cadastrar"),
+                const SizedBox(height: 35),
+              ],
+            ),
           ),
         ),
       ),
