@@ -8,6 +8,7 @@ class DarkTextField extends StatelessWidget {
     this.maxLines = 1,
     this.keyboardType,
     this.controller,
+    this.obscureText = false,
   });
 
   final String hintText;
@@ -15,6 +16,7 @@ class DarkTextField extends StatelessWidget {
   final Widget? prefixIcon;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class DarkTextField extends StatelessWidget {
       ),
       maxLines: maxLines,
       keyboardAppearance: Brightness.dark,
+      obscureText: obscureText,
     );
   }
 }
